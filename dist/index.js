@@ -1876,7 +1876,8 @@ const lineReader = __nccwpck_require__(752);
 const fs = __nccwpck_require__(147);
 
 try {
-  const regex = /(\s*[\w\d]+_test.go:\d+:)(.*?)(Test:\s+Test[\w\d]*?\S+)/gu; // Extracts only the failure from the logs (including whitespace)
+  const regex =
+    /(\s*[\w\d]+_tests?.go:\d+:)(.*?)((Test|FAIL):\s+Test[\w\d]*?\S+)/giu;
 
   const testResultsPath = core.getInput('test-results');
   const customPackageName = core.getInput('package-name');
